@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This is Not Possible</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            text-align: center;
+            background: linear-gradient(120deg, #ff7479, #ffb5a0);
+            color: #fff;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+            line-height: 1.5;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        span {
+            font-weight: bold;
+            color: #ffc107;
+        }
+
+        audio {
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Heart Background Animation */
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            top: 0;
+            left: 0;
+        }
+
+        .heart {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: float 3s infinite ease-in-out;
+        }
+
+        .heart:nth-child(1) {
+            top: 10%;
+            left: 20%;
+            animation-delay: 0.5s;
+        }
+
+        .heart:nth-child(2) {
+            top: 30%;
+            left: 50%;
+            animation-delay: 1.5s;
+        }
+
+        .heart:nth-child(3) {
+            top: 60%;
+            left: 80%;
+            animation-delay: 1s;
+        }
+
+        .heart:nth-child(4) {
+            top: 70%;
+            left: 30%;
+            animation-delay: 2s;
+        }
+
+        .heart:nth-child(5) {
+            top: 40%;
+            left: 70%;
+            animation-delay: 1.2s;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+    <script>
+        // Redirect to the Yes page after 6 seconds
+        let countdown = 5;
+        const interval = setInterval(() => {
+            document.getElementById("timer").textContent = countdown;
+            if (countdown === 0) {
+                clearInterval(interval);
+                window.location.href = "yes.html?from=no";
+            }
+            countdown--;
+        }, 1000);
+    </script>
+</head>
+
+<body>
+    <div class="hearts">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <h1>This is not possible, my babe. You have to marry me! 😘</h1>
+    <p>Redirecting to the YES page in <span id="timer">6</span> seconds...</p>
+    <audio autoplay>
+        <source src="./Sad_np.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+</body>
+
+</html>
